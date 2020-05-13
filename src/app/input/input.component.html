@@ -1,0 +1,33 @@
+<label for="inputName">Name: </label>
+<input type="text"
+       id="inputName"
+       [(ngModel)]="inputName"
+>
+
+<p>What courses are you enrolled in for the summer?</p>
+<label for="course1">First Course: </label>
+<input type="text"
+       id="course1"
+       [(ngModel)]="course1"
+>
+<br />
+<label for="course2">Second Course: </label>
+<input type="text"
+       id="course2"
+       [(ngModel)]="course2"
+>
+<br />
+
+<button (click)="clickHandler()">Submit</button>
+
+<div *ngIf="apiError">
+  <h1>Error!</h1>
+  {{apiError}}
+</div>
+
+<div *ngIf="apiResponse">
+  Thanks for the submission!
+  <br />
+  Your name is {{apiResponse.name}}.<br />
+  You have enrolled in {{apiResponse.course_1}} and {{apiResponse.course_2}}.<br />
+</div>
